@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cheguri Vineeth | SOC Analyst Portfolio</title>
+
+<title>Cheguri Vineeth | Cybersecurity Portfolio</title>
 
 <style>
 
@@ -16,126 +17,185 @@ font-family:Arial, sans-serif;
 }
 
 body{
-background:#081120;
-color:#e5e7eb;
+background:#000;
+color:white;
+overflow-x:hidden;
 }
+
+/* VIDEO BACKGROUND */
+
+.bg-video{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+/* DARK OVERLAY */
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+z-index:-1;
+}
+
+/* NAVBAR */
 
 nav{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(10,15,28,0.85);
-backdrop-filter:blur(12px);
-padding:15px;
+padding:18px;
 text-align:center;
-z-index:999;
+background:rgba(0,0,0,0.25);
+backdrop-filter:blur(12px);
+z-index:100;
 }
 
 nav a{
-color:#d1fae5;
+color:white;
 text-decoration:none;
-margin:0 15px;
+margin:0 20px;
 font-weight:bold;
+letter-spacing:1px;
 }
 
 nav a:hover{
-color:#22c55e;
+color:#00ff9c;
 }
+
+/* HERO SECTION */
 
 .hero{
 min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-padding-top:80px;
-
-background:
-linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.75)),
-url("security-hero.png") center/cover no-repeat;
+padding-top:100px;
 }
+
+/* HERO FLEX */
 
 .hero-container{
 display:flex;
 align-items:center;
-gap:50px;
+gap:60px;
 max-width:1100px;
 width:90%;
 }
 
+/* PROFILE IMAGE */
+
 .profile-img{
 width:300px;
 border-radius:20px;
-box-shadow:0 10px 40px rgba(0,0,0,0.6);
+box-shadow:0 20px 50px rgba(0,0,0,0.8);
+transition:transform 0.5s;
 }
+
+.profile-img:hover{
+transform:rotateY(10deg) scale(1.05);
+}
+
+/* GLASS CARD */
 
 .glass-box{
 background:rgba(255,255,255,0.08);
 border:1px solid rgba(255,255,255,0.15);
 backdrop-filter:blur(20px);
-padding:40px;
+padding:45px;
 border-radius:25px;
-box-shadow:0 10px 40px rgba(0,0,0,0.4);
+box-shadow:0 20px 50px rgba(0,0,0,0.6);
+transition:transform 0.4s;
+}
+
+.glass-box:hover{
+transform:translateY(-10px);
 }
 
 .hero h1{
-font-size:42px;
+font-size:48px;
 margin-bottom:10px;
 }
 
-.hero h1 span{
-color:#22c55e;
+.hero span{
+color:#00ff9c;
 }
 
 .hero p{
-margin-bottom:15px;
 font-size:18px;
+color:#ddd;
+margin-bottom:15px;
 }
 
 .subtext{
-color:#cbd5e1;
+color:#bbb;
+line-height:1.6;
 }
+
+/* BUTTONS */
 
 .btn{
 display:inline-block;
-padding:12px 20px;
+margin-top:15px;
+padding:12px 22px;
 border-radius:10px;
-margin-right:10px;
-margin-top:10px;
 text-decoration:none;
 font-weight:bold;
+margin-right:10px;
 }
 
-.btn-primary{
-background:#22c55e;
-color:#06111f;
+.btn-main{
+background:#00ff9c;
+color:black;
 }
 
-.btn-primary:hover{
-background:#16a34a;
+.btn-main:hover{
+background:#00d17e;
 }
 
 .btn-outline{
-border:1px solid #ccc;
+border:1px solid white;
 color:white;
 }
 
+.btn-outline:hover{
+background:white;
+color:black;
+}
+
+/* CONTENT SECTION */
+
 .container{
 max-width:1000px;
-margin:60px auto;
+margin:80px auto;
 width:90%;
 }
 
 .card{
-background:#111827;
-padding:25px;
-margin-bottom:25px;
-border-radius:15px;
-border-left:4px solid #22c55e;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.12);
+backdrop-filter:blur(15px);
+padding:30px;
+margin-bottom:30px;
+border-radius:20px;
+transition:transform 0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
 }
 
 h2{
+color:#00ff9c;
 margin-bottom:15px;
-color:#22c55e;
 }
 
 ul{
@@ -143,15 +203,19 @@ padding-left:20px;
 }
 
 li{
-margin-bottom:8px;
+margin-bottom:10px;
 }
+
+/* FOOTER */
 
 footer{
 text-align:center;
-padding:20px;
+padding:25px;
+color:#bbb;
 border-top:1px solid rgba(255,255,255,0.1);
-color:#94a3b8;
 }
+
+/* MOBILE */
 
 @media(max-width:900px){
 
@@ -175,6 +239,16 @@ font-size:32px;
 
 <body>
 
+<!-- VIDEO -->
+
+<video autoplay muted loop playsinline class="bg-video">
+<source src="bg-video.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<!-- NAVBAR -->
+
 <nav>
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
@@ -182,6 +256,8 @@ font-size:32px;
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </nav>
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -193,15 +269,15 @@ font-size:32px;
 
 <h1>Cheguri <span>Vineeth</span></h1>
 
-<p>Aspiring SOC Analyst | Cybersecurity Enthusiast | Networking Learner</p>
+<p>Aspiring SOC Analyst | Cybersecurity Enthusiast</p>
 
 <p class="subtext">
-Building practical skills in security monitoring, log analysis, SIEM basics,
-Active Directory, Linux, and network defense with a clear goal of growing
-into a strong SOC professional.
+Focused on building strong cybersecurity foundations in
+networking, Active Directory, SIEM basics, threat monitoring,
+and security operations.
 </p>
 
-<a class="btn btn-primary" href="#contact">Contact Me</a>
+<a class="btn btn-main" href="#contact">Contact Me</a>
 
 <a class="btn btn-outline" href="https://bit.ly/Vineeth-Soc" target="_blank">
 LinkedIn
@@ -213,6 +289,8 @@ LinkedIn
 
 </section>
 
+<!-- ABOUT -->
+
 <div class="container">
 
 <section id="about" class="card">
@@ -220,10 +298,10 @@ LinkedIn
 <h2>About Me</h2>
 
 <p>
-I am an aspiring SOC Analyst with foundational knowledge in Networking,
-Active Directory, Linux, SIEM basics, and Security Monitoring.
-I am focused on building strong practical cybersecurity skills
-and growing into a security operations professional.
+I am an aspiring SOC Analyst learning cybersecurity,
+network defense, threat detection and monitoring.
+My goal is to grow into a strong cybersecurity professional
+working in Security Operations.
 </p>
 
 </section>
@@ -237,10 +315,9 @@ and growing into a security operations professional.
 <li>Active Directory Basics</li>
 <li>Linux Basics</li>
 <li>SIEM Fundamentals</li>
-<li>Log Monitoring</li>
-<li>Security Monitoring</li>
-<li>Nmap Scanning</li>
+<li>Nmap Network Scanning</li>
 <li>Wireshark Packet Analysis</li>
+<li>Security Monitoring</li>
 </ul>
 
 </section>
@@ -251,7 +328,7 @@ and growing into a security operations professional.
 
 <ul>
 <li>ISC2 Certified in Cybersecurity Training</li>
-<li>ThinkCloudly SOC Masterclass Webinar</li>
+<li>ThinkCloudly SOC Masterclass</li>
 <li>Cisco Endpoint Security</li>
 <li>Introduction to Cybersecurity</li>
 </ul>
@@ -265,8 +342,8 @@ and growing into a security operations professional.
 <ul>
 <li>Active Directory Lab Setup</li>
 <li>Nmap Network Scanning Practice</li>
-<li>Wireshark Packet Analysis Practice</li>
-<li>Virtual SOC and Network Defense Lab</li>
+<li>Wireshark Packet Analysis</li>
+<li>Cybersecurity Monitoring Practice</li>
 </ul>
 
 </section>
@@ -278,7 +355,7 @@ and growing into a security operations professional.
 <p>Email: vineethmeru44@outlook.com</p>
 <p>Location: Telangana, India</p>
 
-<a class="btn btn-primary" href="https://bit.ly/Vineeth-Soc" target="_blank">
+<a class="btn btn-main" href="https://bit.ly/Vineeth-Soc" target="_blank">
 LinkedIn
 </a>
 
@@ -291,7 +368,9 @@ GitHub
 </div>
 
 <footer>
+
 © 2026 Cheguri Vineeth | Cybersecurity Portfolio
+
 </footer>
 
 </body>
