@@ -1,28 +1,282 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Vineeth Cyber Portfolio</title>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheguri Vineeth | SOC Analyst Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #081120;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 15, 28, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #d1fae5;
+      text-decoration: none;
+      margin: 0 14px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #22c55e;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(3, 7, 18, 0.65), rgba(3, 7, 18, 0.78)),
+        url("security-hero.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .glass-box {
+      width: 100%;
+      max-width: 850px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 24px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+      text-align: left;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #ffffff;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      color: #22c55e;
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #e5e7eb;
+      margin-bottom: 14px;
+    }
+
+    .hero .subtext {
+      color: #cbd5e1;
+      max-width: 700px;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: rgba(34, 197, 94, 0.92);
+      color: #06111f;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 12px;
+      margin-top: 10px;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #16a34a;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1100px;
+      margin: 40px auto;
+    }
+
+    .card {
+      background: rgba(17, 24, 39, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-left: 4px solid #22c55e;
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    h2 {
+      color: #22c55e;
+      margin-bottom: 14px;
+      font-size: 28px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .skill-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .glass-box {
+        padding: 28px 20px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px 10px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
 <body>
 
-<h1>Cheguri Vineeth</h1>
-<p>Aspiring SOC Analyst | Cybersecurity Enthusiast</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<h2>About Me</h2>
-<p>Learning Networking, Active Directory, Linux, SIEM basics and Security Monitoring.</p>
+  <section class="hero">
+    <div class="glass-box">
+      <h1>Cheguri <span>Vineeth</span></h1>
+      <p>Aspiring SOC Analyst | Cybersecurity Enthusiast | Networking Learner</p>
+      <p class="subtext">
+        Building practical skills in security monitoring, log analysis, SIEM basics,
+        Active Directory, Linux, and network defense with a clear goal of growing into a strong SOC professional.
+      </p>
+      <a class="btn" href="#contact">Contact Me</a>
+      <a class="btn btn-outline" href="https://bit.ly/Vineeth-Soc" target="_blank">LinkedIn</a>
+    </div>
+  </section>
 
-<h2>Certifications</h2>
-<p>ISC2 Certified in Cybersecurity Training</p>
-<p>ThinkCloudly SOC Masterclass</p>
+  <div class="container">
 
-<h2>Projects / Labs</h2>
-<p>Active Directory Lab Setup</p>
-<p>Nmap Network Scanning</p>
-<p>Wireshark Packet Analysis</p>
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      <p>
+        I am an aspiring SOC Analyst with foundational knowledge in Networking, Active Directory,
+        Linux, SIEM basics, and Security Monitoring. I enjoy understanding alerts, analyzing logs,
+        and learning how to identify suspicious activity in a structured way.
+      </p>
+    </section>
 
-<h2>Links</h2>
-<a href="https://bit.ly/Vineeth-Soc">LinkedIn Profile</a>
+    <section id="skills" class="card">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-item">Networking Fundamentals</div>
+        <div class="skill-item">Active Directory Basics</div>
+        <div class="skill-item">Linux Basics</div>
+        <div class="skill-item">SIEM Fundamentals</div>
+        <div class="skill-item">Log Monitoring</div>
+        <div class="skill-item">Security Monitoring</div>
+        <div class="skill-item">Nmap Scanning</div>
+        <div class="skill-item">Wireshark Packet Analysis</div>
+      </div>
+    </section>
+
+    <section id="certifications" class="card">
+      <h2>Certifications & Training</h2>
+      <ul>
+        <li>ISC2 Certified in Cybersecurity Training</li>
+        <li>ThinkCloudly SOC Masterclass Webinar</li>
+        <li>Cisco Endpoint Security</li>
+        <li>Introduction to Cybersecurity</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="card">
+      <h2>Projects / Labs</h2>
+      <ul>
+        <li>Active Directory Lab Setup</li>
+        <li>Nmap Network Scanning Practice</li>
+        <li>Wireshark Packet Analysis Practice</li>
+        <li>Virtual SOC and Network Defense Lab</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact & Links</h2>
+      <p>Email: vineethmeru44@outlook.com</p>
+      <p>Location: Telangana, India</p>
+      <a class="btn" href="https://bit.ly/Vineeth-Soc" target="_blank">LinkedIn</a>
+      <a class="btn btn-outline" href="https://github.com/VineethCyberSec" target="_blank">GitHub</a>
+    </section>
+
+  </div>
+
+  <footer>
+    © 2026 Cheguri Vineeth | Cybersecurity Portfolio
+  </footer>
 
 </body>
 </html>
+
