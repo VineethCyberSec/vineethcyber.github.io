@@ -21,6 +21,15 @@
       background:#000;
       color:#fff;
       overflow-x:hidden;
+      -webkit-user-select:none;
+      -ms-user-select:none;
+      user-select:none;
+    }
+
+    img{
+      -webkit-user-drag:none;
+      user-drag:none;
+      pointer-events:none;
     }
 
     .bg-video{
@@ -116,10 +125,11 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      object-position: center 10%;
+      object-position:center 10%;
       border-radius:50%;
       border:6px solid rgba(20,20,20,0.95);
       display:block;
+      transform:scale(1.08);
     }
 
     @keyframes floatRing{
@@ -153,16 +163,24 @@
       color:#00ff9c;
     }
 
+    .constant-line{
+      font-size:22px;
+      font-weight:bold;
+      color:#ffffff;
+      margin:10px 0 8px;
+    }
+
     .typing-wrap{
       font-size:22px;
       font-weight:bold;
       color:#d8d8d8;
-      margin:12px 0 20px;
+      margin:0 0 20px;
       min-height:34px;
+      line-height:1.5;
     }
 
     #typed-text{
-      color:#ffffff;
+      color:#00ff9c;
     }
 
     .cursor{
@@ -319,6 +337,7 @@
         font-size:38px;
       }
 
+      .constant-line,
       .typing-wrap{
         font-size:18px;
       }
@@ -338,7 +357,7 @@
     }
   </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
   <video autoplay muted loop playsinline class="bg-video">
     <source src="bg-video.mp4" type="video/mp4">
@@ -360,6 +379,8 @@
       <div class="hero-left">
         <div class="glass-box">
           <h1>Cheguri <span>Vineeth</span></h1>
+
+          <div class="constant-line">I'm</div>
 
           <div class="typing-wrap">
             <span id="typed-text"></span><span class="cursor">|</span>
@@ -453,10 +474,14 @@
 
   <script>
     const texts = [
-      "Aspiring SOC Analyst",
-      "Cybersecurity Enthusiast",
-      "Threat Monitoring Learner",
-      "Networking & Security Student"
+      "Check Security Dashboards",
+      "Monitor Security Alerts",
+      "Alert Triage",
+      "Log Analysis",
+      "Initial Investigation",
+      "Create Incident Tickets",
+      "Escalate to SOC L2",
+      "Follow Playbooks"
     ];
 
     let textIndex = 0;
@@ -486,7 +511,7 @@
         }
       }
 
-      setTimeout(typeEffect, isDeleting ? 45 : 90);
+      setTimeout(typeEffect, isDeleting ? 35 : 65);
     }
 
     typeEffect();
@@ -506,6 +531,18 @@
         top: 0,
         behavior: "smooth"
       });
+    });
+
+    document.addEventListener("keydown", function(e) {
+      if (
+        e.ctrlKey && (e.key === "u" || e.key === "U" ||
+        e.key === "c" || e.key === "C" ||
+        e.key === "x" || e.key === "X" ||
+        e.key === "s" || e.key === "S" ||
+        e.key === "a" || e.key === "A")
+      ) {
+        e.preventDefault();
+      }
     });
   </script>
 
