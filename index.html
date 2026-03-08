@@ -24,12 +24,14 @@
       -webkit-user-select:none;
       -ms-user-select:none;
       user-select:none;
+      cursor:default;
     }
 
     img{
       -webkit-user-drag:none;
       user-drag:none;
       pointer-events:none;
+      cursor:default;
     }
 
     .bg-video{
@@ -71,6 +73,7 @@
       margin:0 18px;
       font-weight:bold;
       letter-spacing:0.4px;
+      cursor:pointer;
     }
 
     nav a:hover{
@@ -103,6 +106,7 @@
       display:flex;
       justify-content:center;
       align-items:center;
+      cursor:default;
     }
 
     .photo-wrap{
@@ -113,6 +117,7 @@
       align-items:center;
       justify-content:center;
       animation:floatPhoto 4s ease-in-out infinite;
+      cursor:default;
     }
 
     .animated-photo{
@@ -127,6 +132,9 @@
       box-shadow:
         0 0 25px rgba(0,225,255,0.45),
         0 0 60px rgba(0,225,255,0.18);
+      transform:none !important;
+      transition:none !important;
+      cursor:default;
     }
 
     .photo-glow{
@@ -137,12 +145,14 @@
       background:radial-gradient(circle, rgba(0,229,255,0.28) 0%, rgba(0,229,255,0.10) 40%, rgba(0,229,255,0.02) 70%, transparent 100%);
       z-index:1;
       filter:blur(8px);
+      pointer-events:none;
     }
 
     .orbit{
       position:absolute;
       border-radius:50%;
       z-index:2;
+      pointer-events:none;
     }
 
     .orbit1{
@@ -259,6 +269,7 @@
       font-weight:bold;
       margin-right:12px;
       transition:all 0.3s ease;
+      cursor:pointer;
     }
 
     .btn-main{
@@ -447,7 +458,7 @@
         <div class="glass-box">
           <h1>Cheguri <span>Vineeth</span></h1>
 
-          <div class="constant-line">I'm a</div>
+          <div class="constant-line">I'm</div>
 
           <div class="typing-wrap">
             <span id="typed-text"></span><span class="cursor">|</span>
@@ -459,7 +470,7 @@
 
           <a class="btn btn-main" href="#contact">Contact Me</a>
           <a class="btn btn-outline" href="https://www.linkedin.com/in/vineeth-soc" target="_blank">LinkedIn</a>
-          <a class="btn btn-outline" href="vineeth-resume.pdf" download>Download CV</a>
+          <a class="btn btn-outline" href="vineeth-resume.pdf" download>Download Resume</a>
         </div>
       </div>
 
@@ -534,7 +545,7 @@
       <div class="contact-links">
         <a class="btn btn-main" href="https://www.linkedin.com/in/vineeth-soc" target="_blank">LinkedIn</a>
         <a class="btn btn-outline" href="https://github.com/VineethCyberSec" target="_blank">GitHub</a>
-        <a class="btn btn-outline" href="vineeth-resume.pdf" download>Download CV</a>
+        <a class="btn btn-outline" href="vineeth-resume.pdf" download>Download Resume</a>
       </div>
     </section>
 
