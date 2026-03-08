@@ -260,39 +260,51 @@
       max-width:760px;
     }
 
+    /* FINAL BUTTON STYLE */
     .btn{
       display:inline-block;
       margin-top:12px;
+      margin-right:12px;
       padding:13px 22px;
-      border-radius:12px;
+      border:none;
+      border-radius:14px;
       text-decoration:none;
       font-weight:bold;
-      margin-right:12px;
-      transition:all 0.3s ease;
-      cursor:pointer;
-    }
-
-    .btn-main{
-      background:#00ff9c;
-      color:#000;
-      box-shadow:0 8px 22px rgba(0,255,156,0.25);
-    }
-
-    .btn-main:hover{
-      background:#00d987;
-      transform:translateY(-2px);
-    }
-
-    .btn-outline{
-      border:1px solid rgba(255,255,255,0.7);
+      font-size:16px;
       color:#fff;
-      background:rgba(255,255,255,0.03);
+      cursor:pointer;
+      background:linear-gradient(
+        270deg,
+        #2E7DE1,
+        #7B3FCF,
+        #E10E8C,
+        #7B3FCF,
+        #2E7DE1
+      );
+      background-size:400% 400%;
+      animation:gradientMove 6s linear infinite;
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.25);
+      box-shadow:
+        0 0 10px rgba(46,125,225,0.6),
+        0 0 20px rgba(123,63,207,0.6),
+        0 0 30px rgba(225,14,140,0.6);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .btn-outline:hover{
-      background:#fff;
-      color:#000;
+    .btn:hover{
       transform:translateY(-2px);
+      box-shadow:
+        0 0 20px rgba(46,125,225,0.9),
+        0 0 40px rgba(123,63,207,0.9),
+        0 0 60px rgba(225,14,140,0.9);
+    }
+
+    @keyframes gradientMove{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
     }
 
     .container{
@@ -432,6 +444,11 @@
       .glass-box{
         padding:28px;
       }
+
+      .btn{
+        margin-right:8px;
+        margin-bottom:8px;
+      }
     }
   </style>
 </head>
@@ -468,9 +485,9 @@
             To start my career as a SOC L1 Analyst, where I can contribute to continuous security monitoring, alert triage, and incident support while developing strong technical and analytical skills to advance in the cybersecurity domain.
           </p>
 
-          <a class="btn btn-main" href="#contact">Contact Me</a>
-          <a class="btn btn-outline" href="https://www.linkedin.com/in/vineeth-soc" target="_blank">LinkedIn</a>
-          <a class="btn btn-outline" href="vineeth-resume.pdf" download>Download CV</a>
+          <a class="btn" href="#contact">Contact Me</a>
+          <a class="btn" href="https://www.linkedin.com/in/vineeth-soc" target="_blank">LinkedIn</a>
+          <a class="btn" href="vineeth-resume.pdf" download>Download CV</a>
         </div>
       </div>
 
@@ -529,11 +546,9 @@
         <li>Promoted server to Domain Controller</li>
         <li>Created Domain, Users, Organizational Units (OU)</li>
         <li>Practiced Group Policy basics</li>
-        
         <li>Understanding alerts, events, incidents</li>
         <li>Identifying true positives / false positives</li>
         <li>Escalating alerts to SOC L2</li>
-
       </ul>
     </section>
 
@@ -543,16 +558,15 @@
       <p>Location: Telangana, India</p>
 
       <div class="contact-links">
-        <a class="btn btn-main" href="https://www.linkedin.com/in/vineeth-soc" target="_blank">LinkedIn</a>
-        <a class="btn btn-outline" href="https://github.com/VineethCyberSec" target="_blank">GitHub</a>
-        <a class="btn btn-outline" href="vineeth-resume.pdf" download>Download CV</a>
+        <a class="btn" href="https://www.linkedin.com/in/vineeth-soc" target="_blank">LinkedIn</a>
+        <a class="btn" href="vineeth-resume.pdf" download>Download CV</a>
       </div>
     </section>
 
   </div>
 
   <footer>
-    © 2026 Cheguri Vineeth | Cybersecurity 
+    © 2026 Cheguri Vineeth | Cybersecurity
   </footer>
 
   <button class="scroll-top" id="scrollTopBtn">↑</button>
