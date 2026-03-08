@@ -50,7 +50,8 @@
       left:0;
       width:100%;
       height:100%;
-      background:rgba(0,0,0,0.60);
+      background:
+        linear-gradient(135deg, rgba(10,10,18,0.70), rgba(20,5,35,0.58), rgba(5,20,28,0.62));
       z-index:-1;
     }
 
@@ -74,10 +75,12 @@
       font-weight:bold;
       letter-spacing:0.4px;
       cursor:pointer;
+      transition:0.3s ease;
     }
 
     nav a:hover{
-      color:#00ff9c;
+      color:#7cf7ff;
+      text-shadow:0 0 12px rgba(124,247,255,0.55);
     }
 
     .hero{
@@ -196,18 +199,28 @@
     }
 
     .glass-box{
-      background:rgba(255,255,255,0.08);
+      background:linear-gradient(
+        135deg,
+        rgba(46,125,225,0.12),
+        rgba(123,63,207,0.12),
+        rgba(225,14,140,0.10)
+      );
       border:1px solid rgba(255,255,255,0.14);
       backdrop-filter:blur(18px);
       -webkit-backdrop-filter:blur(18px);
       padding:45px;
       border-radius:28px;
-      box-shadow:0 20px 50px rgba(0,0,0,0.55);
-      transition:transform 0.35s ease;
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.55),
+        0 0 25px rgba(123,63,207,0.10);
+      transition:transform 0.35s ease, box-shadow 0.35s ease;
     }
 
     .glass-box:hover{
       transform:translateY(-6px);
+      box-shadow:
+        0 24px 55px rgba(0,0,0,0.60),
+        0 0 35px rgba(123,63,207,0.16);
     }
 
     .hero h1{
@@ -217,7 +230,10 @@
     }
 
     .hero h1 span{
-      color:#00ff9c;
+      background:linear-gradient(90deg, #7cf7ff, #8f7bff, #ff77d9);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
     }
 
     .constant-line{
@@ -237,12 +253,15 @@
     }
 
     #typed-text{
-      color:#00ff9c;
+      background:linear-gradient(90deg, #2de2ff, #00f5c4, #ff61c7);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
     }
 
     .cursor{
       display:inline-block;
-      color:#00ff9c;
+      color:#7cf7ff;
       animation:blink 0.8s infinite;
       margin-left:2px;
     }
@@ -254,13 +273,12 @@
 
     .subtext{
       font-size:18px;
-      color:#d8d8d8;
+      color:#e1e1e1;
       line-height:1.7;
       margin-bottom:20px;
       max-width:760px;
     }
 
-    /* FINAL BUTTON STYLE */
     .btn{
       display:inline-block;
       margin-top:12px;
@@ -314,32 +332,56 @@
     }
 
     .card{
-      background:rgba(255,255,255,0.08);
+      background:linear-gradient(
+        135deg,
+        rgba(255,255,255,0.09),
+        rgba(255,255,255,0.06)
+      );
       border:1px solid rgba(255,255,255,0.12);
       backdrop-filter:blur(15px);
       -webkit-backdrop-filter:blur(15px);
       padding:30px;
       margin-bottom:28px;
       border-radius:22px;
-      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      transition:transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       box-shadow:0 16px 35px rgba(0,0,0,0.25);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        120deg,
+        rgba(46,125,225,0.06),
+        rgba(123,63,207,0.04),
+        rgba(225,14,140,0.05)
+      );
+      pointer-events:none;
     }
 
     .card:hover{
       transform:translateY(-6px);
       box-shadow:0 22px 45px rgba(0,0,0,0.35);
+      border-color:rgba(124,247,255,0.18);
     }
 
     h2{
-      color:#00ff9c;
+      color:#7cf7ff;
       margin-bottom:16px;
       font-size:30px;
+      position:relative;
+      z-index:1;
     }
 
     p, li{
       font-size:18px;
       line-height:1.7;
       color:#e7e7e7;
+      position:relative;
+      z-index:1;
     }
 
     ul{
@@ -348,6 +390,28 @@
 
     li{
       margin-bottom:10px;
+    }
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(220px, 1fr));
+      gap:14px 22px;
+      position:relative;
+      z-index:1;
+    }
+
+    .skill-pill{
+      list-style:none;
+      padding:14px 16px;
+      border-radius:16px;
+      background:linear-gradient(
+        135deg,
+        rgba(46,125,225,0.16),
+        rgba(123,63,207,0.12),
+        rgba(225,14,140,0.10)
+      );
+      border:1px solid rgba(255,255,255,0.10);
+      box-shadow:0 8px 22px rgba(0,0,0,0.16);
     }
 
     .contact-links{
@@ -371,12 +435,15 @@
       height:48px;
       border:none;
       border-radius:50%;
-      background:linear-gradient(135deg, #00e5ff, #00ff9c);
-      color:#000;
+      background:linear-gradient(135deg, #2E7DE1, #7B3FCF, #E10E8C);
+      color:#fff;
       font-size:24px;
       font-weight:bold;
       cursor:pointer;
-      box-shadow:0 8px 24px rgba(0,255,156,0.35);
+      box-shadow:
+        0 0 12px rgba(46,125,225,0.55),
+        0 0 24px rgba(123,63,207,0.45),
+        0 0 34px rgba(225,14,140,0.35);
       display:none;
       z-index:999;
       transition:transform 0.25s ease, box-shadow 0.25s ease;
@@ -384,7 +451,10 @@
 
     .scroll-top:hover{
       transform:translateY(-4px);
-      box-shadow:0 12px 30px rgba(0,255,156,0.5);
+      box-shadow:
+        0 0 20px rgba(46,125,225,0.75),
+        0 0 35px rgba(123,63,207,0.65),
+        0 0 50px rgba(225,14,140,0.55);
     }
 
     @media(max-width:950px){
@@ -449,6 +519,10 @@
         margin-right:8px;
         margin-bottom:8px;
       }
+
+      .skills-grid{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
@@ -508,23 +582,27 @@
     <section id="about" class="card">
       <h2>About Me</h2>
       <p>
-        I am aspiring SOC Analyst with foundational knowledge in networking, Active Directory,
-        Linux, SIEM basics, and security monitoring. I am focused on learning the right way,
+        I am an aspiring SOC Analyst with foundational knowledge in networking, Active Directory,
+        Linux, SIEM basics, security monitoring, and web technologies. I am focused on learning the right way,
         building practical skills, and growing into a strong cybersecurity professional.
       </p>
     </section>
 
     <section id="skills" class="card">
       <h2>Technical Skills</h2>
-      <ul>
-        <li>Networking Fundamentals</li>
-        <li>Active Directory Basics</li>
-        <li>Linux Basics</li>
-        <li>SIEM Fundamentals</li>
-        <li>Log Monitoring</li>
-        <li>Security Monitoring</li>
-        <li>Nmap Network Scanning</li>
-        <li>Wireshark Packet Analysis</li>
+      <ul class="skills-grid">
+        <li class="skill-pill">Networking Fundamentals</li>
+        <li class="skill-pill">Active Directory Basics</li>
+        <li class="skill-pill">Linux Basics</li>
+        <li class="skill-pill">SIEM Fundamentals</li>
+        <li class="skill-pill">Log Monitoring</li>
+        <li class="skill-pill">Security Monitoring</li>
+        <li class="skill-pill">Nmap Network Scanning</li>
+        <li class="skill-pill">Wireshark Packet Analysis</li>
+        <li class="skill-pill">Python Basics</li>
+        <li class="skill-pill">HTML</li>
+        <li class="skill-pill">CSS</li>
+        <li class="skill-pill">JavaScript</li>
       </ul>
     </section>
 
@@ -546,9 +624,11 @@
         <li>Promoted server to Domain Controller</li>
         <li>Created Domain, Users, Organizational Units (OU)</li>
         <li>Practiced Group Policy basics</li>
-        <li>Understanding alerts, events, incidents</li>
-        <li>Identifying true positives / false positives</li>
+        <li>Understanding alerts, events, and incidents</li>
+        <li>Identifying true positives and false positives</li>
         <li>Escalating alerts to SOC L2</li>
+        <li>Built a cybersecurity portfolio using HTML, CSS, and JavaScript</li>
+        <li>Practicing Python basics for automation and security learning</li>
       </ul>
     </section>
 
@@ -580,7 +660,9 @@
       "Initial Investigation",
       "Create Incident Tickets",
       "Escalate to SOC L2",
-      "Follow Playbooks"
+      "Follow Playbooks",
+      "Build with HTML, CSS & JavaScript",
+      "Learn Python for Security"
     ];
 
     let textIndex = 0;
