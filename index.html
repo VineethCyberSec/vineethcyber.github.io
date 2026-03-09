@@ -51,7 +51,7 @@
       width:100%;
       height:100%;
       background:
-        linear-gradient(135deg, rgba(10,10,18,0.70), rgba(20,5,35,0.58), rgba(5,20,28,0.62));
+        linear-gradient(135deg, rgba(10,10,18,0.78), rgba(32,8,48,0.66), rgba(7,18,35,0.72));
       z-index:-1;
     }
 
@@ -59,23 +59,23 @@
       position:fixed;
       top:0;
       width:100%;
-      padding:18px;
+      padding:18px 10px;
       text-align:center;
-      background:rgba(0,0,0,0.20);
+      background:rgba(0,0,0,0.22);
       backdrop-filter:blur(12px);
       -webkit-backdrop-filter:blur(12px);
-      z-index:100;
+      z-index:1000;
       border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
     nav a{
       color:#fff;
       text-decoration:none;
-      margin:0 18px;
+      margin:0 14px;
       font-weight:bold;
-      letter-spacing:0.4px;
-      cursor:pointer;
+      letter-spacing:0.3px;
       transition:0.3s ease;
+      font-size:15px;
     }
 
     nav a:hover{
@@ -88,7 +88,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:110px 0 40px;
+      padding:110px 0 50px;
     }
 
     .hero-container{
@@ -96,7 +96,7 @@
       align-items:center;
       justify-content:space-between;
       gap:60px;
-      max-width:1180px;
+      max-width:1200px;
       width:90%;
     }
 
@@ -109,7 +109,6 @@
       display:flex;
       justify-content:center;
       align-items:center;
-      cursor:default;
     }
 
     .photo-wrap{
@@ -120,7 +119,6 @@
       align-items:center;
       justify-content:center;
       animation:floatPhoto 4s ease-in-out infinite;
-      cursor:default;
     }
 
     .animated-photo{
@@ -135,9 +133,6 @@
       box-shadow:
         0 0 25px rgba(0,225,255,0.45),
         0 0 60px rgba(0,225,255,0.18);
-      transform:none !important;
-      transition:none !important;
-      cursor:default;
     }
 
     .photo-glow{
@@ -274,7 +269,7 @@
     .subtext{
       font-size:18px;
       color:#e1e1e1;
-      line-height:1.7;
+      line-height:1.8;
       margin-bottom:20px;
       max-width:760px;
     }
@@ -301,8 +296,6 @@
       );
       background-size:400% 400%;
       animation:gradientMove 6s linear infinite;
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
       border:1px solid rgba(255,255,255,0.25);
       box-shadow:
         0 0 10px rgba(46,125,225,0.6),
@@ -326,8 +319,8 @@
     }
 
     .container{
-      max-width:1050px;
-      margin:40px auto 80px;
+      max-width:1100px;
+      margin:20px auto 80px;
       width:90%;
     }
 
@@ -340,7 +333,7 @@
       border:1px solid rgba(255,255,255,0.12);
       backdrop-filter:blur(15px);
       -webkit-backdrop-filter:blur(15px);
-      padding:30px;
+      padding:32px;
       margin-bottom:28px;
       border-radius:22px;
       transition:transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -370,22 +363,32 @@
 
     h2{
       color:#7cf7ff;
-      margin-bottom:16px;
-      font-size:30px;
+      margin-bottom:18px;
+      font-size:32px;
+      position:relative;
+      z-index:1;
+    }
+
+    h3{
+      color:#ffffff;
+      margin:20px 0 10px;
+      font-size:22px;
       position:relative;
       z-index:1;
     }
 
     p, li{
       font-size:18px;
-      line-height:1.7;
+      line-height:1.75;
       color:#e7e7e7;
       position:relative;
       z-index:1;
     }
 
     ul{
-      padding-left:22px;
+      padding-left:24px;
+      position:relative;
+      z-index:1;
     }
 
     li{
@@ -395,14 +398,14 @@
     .skills-grid{
       display:grid;
       grid-template-columns:repeat(2, minmax(220px, 1fr));
-      gap:14px 22px;
+      gap:16px 24px;
       position:relative;
       z-index:1;
     }
 
     .skill-pill{
       list-style:none;
-      padding:14px 16px;
+      padding:16px 18px;
       border-radius:16px;
       background:linear-gradient(
         135deg,
@@ -412,10 +415,71 @@
       );
       border:1px solid rgba(255,255,255,0.10);
       box-shadow:0 8px 22px rgba(0,0,0,0.16);
+      font-size:18px;
+      font-weight:600;
     }
 
-    .contact-links{
-      margin-top:14px;
+    .two-column{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      position:relative;
+      z-index:1;
+    }
+
+    .project-box{
+      margin-top:16px;
+      padding:22px;
+      border-radius:18px;
+      background:linear-gradient(
+        135deg,
+        rgba(255,255,255,0.07),
+        rgba(255,255,255,0.04)
+      );
+      border:1px solid rgba(255,255,255,0.10);
+    }
+
+    .project-title{
+      font-size:24px;
+      font-weight:700;
+      color:#fff;
+      margin-bottom:16px;
+      line-height:1.5;
+    }
+
+    .project-item{
+      margin-bottom:16px;
+    }
+
+    .project-item strong{
+      color:#7cf7ff;
+      display:block;
+      margin-bottom:4px;
+      font-size:20px;
+    }
+
+    .education-item{
+      margin-bottom:18px;
+      padding:18px 20px;
+      border-radius:16px;
+      background:linear-gradient(
+        135deg,
+        rgba(46,125,225,0.12),
+        rgba(123,63,207,0.10),
+        rgba(225,14,140,0.08)
+      );
+      border:1px solid rgba(255,255,255,0.10);
+    }
+
+    .education-item h4{
+      font-size:21px;
+      margin-bottom:6px;
+      color:#fff;
+    }
+
+    .education-item p{
+      font-size:17px;
+      color:#dedede;
     }
 
     footer{
@@ -506,9 +570,13 @@
         font-size:16px;
       }
 
+      nav{
+        padding:16px 6px;
+      }
+
       nav a{
-        margin:0 10px;
-        font-size:14px;
+        margin:0 6px;
+        font-size:12px;
       }
 
       .glass-box{
@@ -520,8 +588,21 @@
         margin-bottom:8px;
       }
 
-      .skills-grid{
+      .skills-grid,
+      .two-column{
         grid-template-columns:1fr;
+      }
+
+      h2{
+        font-size:28px;
+      }
+
+      p, li{
+        font-size:16px;
+      }
+
+      .project-title{
+        font-size:20px;
       }
     }
   </style>
@@ -535,10 +616,13 @@
   <div class="overlay"></div>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#certifications">Certifications</a>
+    <a href="#about">About Me</a>
+    <a href="#tools">Technical Tools</a>
+    <a href="#skills">Technical Skills</a>
+    <a href="#competencies">Core Competencies</a>
     <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#education">Education</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -556,7 +640,9 @@
           </div>
 
           <p class="subtext">
-            To start my career as a SOC L1 Analyst, where I can contribute to continuous security monitoring, alert triage, and incident support while developing strong technical and analytical skills to advance in the cybersecurity domain.
+            Aspiring cybersecurity professional with a strong interest in security monitoring,
+            log analysis, and incident investigation. Building solid foundations in networking,
+            cyber defense, and hands-on lab practice to grow into a strong SOC Analyst.
           </p>
 
           <a class="btn" href="#contact">Contact Me</a>
@@ -582,62 +668,133 @@
     <section id="about" class="card">
       <h2>About Me</h2>
       <p>
-        I am an aspiring SOC Analyst with foundational knowledge in networking, Active Directory,
-        Linux, SIEM basics, security monitoring, and web technologies. I am focused on learning the right way,
-        building practical skills, and growing into a strong cybersecurity professional.
+        Aspiring cybersecurity professional with a strong interest in security monitoring,
+        log analysis, and incident investigation. I have a solid foundation in networking
+        and cybersecurity fundamentals and enjoy analyzing suspicious activities to help
+        protect organizations from cyber threats. I am seeking an entry-level SOC Analyst
+        role where I can apply my analytical skills and continue growing in the cybersecurity domain.
       </p>
+    </section>
+
+    <section id="tools" class="card">
+      <h2>Technical Tools</h2>
+      <ul>
+        <li>Ubuntu Linux</li>
+        <li>Suricata IDS</li>
+        <li>pfSense Firewall</li>
+        <li>Splunk SIEM</li>
+        <li>Splunk Forwarder</li>
+      </ul>
     </section>
 
     <section id="skills" class="card">
       <h2>Technical Skills</h2>
       <ul class="skills-grid">
-        <li class="skill-pill">Networking Fundamentals</li>
-        <li class="skill-pill">Active Directory Basics</li>
-        <li class="skill-pill">Linux Basics</li>
-        <li class="skill-pill">SIEM Fundamentals</li>
-        <li class="skill-pill">Log Monitoring</li>
+        <li class="skill-pill">Log Analysis</li>
         <li class="skill-pill">Security Monitoring</li>
-        <li class="skill-pill">Nmap Network Scanning</li>
-        <li class="skill-pill">Wireshark Packet Analysis</li>
-        <li class="skill-pill">Python Basics</li>
-        <li class="skill-pill">HTML</li>
-        <li class="skill-pill">CSS</li>
-        <li class="skill-pill">JavaScript</li>
+        <li class="skill-pill">Networking Fundamentals</li>
+        <li class="skill-pill">TCP/IP, DNS, DHCP</li>
       </ul>
     </section>
 
-    <section id="certifications" class="card">
-      <h2>Certifications</h2>
+    <section id="competencies" class="card">
+      <h2>Core Competencies</h2>
       <ul>
-        <li>ISC2 Certified in Cybersecurity Training</li>
-        <li>ThinkCloudly SOC Masterclass Webinar</li>
-        <li>Cisco Endpoint Security</li>
-        <li>Introduction to Cybersecurity</li>
+        <li>Strong troubleshooting and analytical skills</li>
+        <li>Attention to detail in monitoring and log review</li>
+        <li>Willingness to learn and follow SOC processes</li>
+        <li>Good documentation and communication mindset</li>
+        <li>Calm and methodical approach to security alerts</li>
       </ul>
     </section>
 
     <section id="projects" class="card">
-      <h2>Projects / Labs</h2>
+      <h2>Technical Security Projects</h2>
+
+      <div class="project-box">
+        <div class="project-title">
+          Virtual SOC &amp; Network Defense Lab | Self-Initiated Hands-on Security Lab.
+        </div>
+
+        <div class="project-item">
+          <strong>Infrastructure:</strong>
+          <p>
+            Engineered a virtualized network using Oracle VM VirtualBox to simulate an
+            enterprise environment with segmented networks.
+          </p>
+        </div>
+
+        <div class="project-item">
+          <strong>Traffic Monitoring:</strong>
+          <p>
+            Deployed and configured Suricata IDS on Ubuntu to monitor network traffic,
+            generating alerts for suspicious patterns and potential threats.
+          </p>
+        </div>
+
+        <div class="project-item">
+          <strong>SIEM Integration:</strong>
+          <p>
+            Utilized Splunk for centralized log management; performed basic analysis
+            of system logs and network alerts to identify security anomalies.
+          </p>
+        </div>
+
+        <div class="project-item">
+          <strong>Packet Analysis (Wireshark):</strong>
+          <p>
+            Conducted routine network captures to analyze TCP handshakes, DNS requests,
+            and TLS traffic; to identify irregular traffic spikes or unauthorized connection attempts.
+          </p>
+        </div>
+
+        <div class="project-item">
+          <strong>Firewall Management:</strong>
+          <p>
+            Configured pfSense to manage gateway security, implementing strict access
+            control lists (ACLs) to harden the internal network.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="card">
+      <h2>Certifications &amp; Training</h2>
       <ul>
-        <li>Installed Windows Server in VirtualBox</li>
-        <li>Configured Active Directory Domain Services (AD DS)</li>
-        <li>Promoted server to Domain Controller</li>
-        <li>Created Domain, Users, Organizational Units (OU)</li>
-        <li>Practiced Group Policy basics</li>
-        <li>Understanding alerts, events, and incidents</li>
-        <li>Identifying true positives and false positives</li>
-        <li>Escalating alerts to SOC L2</li>
-        <li>Built a cybersecurity portfolio using HTML, CSS, and JavaScript</li>
-        <li>Practicing Python basics for automation and security learning</li>
+        <li>ISC2 Certified in Cybersecurity (CC) Training | Feb 2026</li>
+        <li>Endpoint Security – Cisco Networking Academy | Mar 2026</li>
+        <li>Introduction to Cybersecurity – Cisco Networking Academy | Mar 2026</li>
+        <li>Introduction to Digital Forensics – Security Blue Team | Feb 2026</li>
+        <li>Introduction to OSINT – Security Blue Team | Feb 2026</li>
+        <li>SOC Masterclass – ThinkCloudly | Dec 2025</li>
       </ul>
+    </section>
+
+    <section id="education" class="card">
+      <h2>Education</h2>
+
+      <div class="education-item">
+        <h4>Bachelor of Arts (B.A)</h4>
+        <p>Dr. B.R. Ambedkar Open University | 2025 | 62.5%</p>
+      </div>
+
+      <div class="education-item">
+        <h4>Intermediate</h4>
+        <p>Government Junior College | 2017 | Score: 69%</p>
+      </div>
+
+      <div class="education-item">
+        <h4>Secondary School Certificate (SSC)</h4>
+        <p>ZPHS High School | 2014 | Score: 71%</p>
+      </div>
     </section>
 
     <section id="contact" class="card">
       <h2>Contact</h2>
-      <p>Email: vineethmeru44@outlook.com</p>
-      <p>Location: Telangana, India</p>
+      <p><strong>Email:</strong> vineethmeru44@outlook.com</p>
+      <p><strong>Location:</strong> Telangana, India</p>
 
-      <div class="contact-links">
+      <div style="margin-top:16px;">
         <a class="btn" href="https://www.linkedin.com/in/vineeth-soc" target="_blank">LinkedIn</a>
         <a class="btn" href="vineeth-resume.pdf" download>Download CV</a>
       </div>
@@ -646,23 +803,23 @@
   </div>
 
   <footer>
-    © 2026 Cheguri Vineeth | Cybersecurity
+    © 2026 Cheguri Vineeth | Cybersecurity Portfolio
   </footer>
 
   <button class="scroll-top" id="scrollTopBtn">↑</button>
 
   <script>
     const texts = [
-      "Check Security Dashboards",
-      "Monitor Security Alerts",
-      "Alert Triage",
+      "Aspiring SOC Analyst",
+      "Security Monitoring",
       "Log Analysis",
-      "Initial Investigation",
-      "Create Incident Tickets",
-      "Escalate to SOC L2",
-      "Follow Playbooks",
-      "Build with HTML, CSS & JavaScript",
-      "Learn Python for Security"
+      "Incident Investigation",
+      "Suricata IDS Monitoring",
+      "Splunk SIEM Basics",
+      "Wireshark Packet Analysis",
+      "Firewall Management",
+      "Networking Fundamentals",
+      "Cybersecurity Learner"
     ];
 
     let textIndex = 0;
@@ -716,11 +873,13 @@
 
     document.addEventListener("keydown", function(e) {
       if (
-        e.ctrlKey && (e.key === "u" || e.key === "U" ||
-        e.key === "c" || e.key === "C" ||
-        e.key === "x" || e.key === "X" ||
-        e.key === "s" || e.key === "S" ||
-        e.key === "a" || e.key === "A")
+        e.ctrlKey && (
+          e.key === "u" || e.key === "U" ||
+          e.key === "c" || e.key === "C" ||
+          e.key === "x" || e.key === "X" ||
+          e.key === "s" || e.key === "S" ||
+          e.key === "a" || e.key === "A"
+        )
       ) {
         e.preventDefault();
       }
