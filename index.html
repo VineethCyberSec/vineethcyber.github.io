@@ -419,14 +419,6 @@
       font-weight:600;
     }
 
-    .two-column{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:28px;
-      position:relative;
-      z-index:1;
-    }
-
     .project-box{
       margin-top:16px;
       padding:22px;
@@ -480,6 +472,91 @@
     .education-item p{
       font-size:17px;
       color:#dedede;
+    }
+
+    .cert-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:22px;
+      position:relative;
+      z-index:1;
+    }
+
+    .cert-card{
+      min-height:220px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:24px;
+      border-radius:20px;
+      background:linear-gradient(
+        135deg,
+        rgba(46,125,225,0.14),
+        rgba(123,63,207,0.14),
+        rgba(225,14,140,0.10)
+      );
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:0 14px 30px rgba(0,0,0,0.24);
+      transition:transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .cert-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 20px 40px rgba(0,0,0,0.34);
+      border-color:rgba(124,247,255,0.24);
+    }
+
+    .cert-card h3{
+      font-size:22px;
+      line-height:1.5;
+      color:#ffffff;
+      margin-bottom:14px;
+    }
+
+    .cert-org{
+      font-size:17px;
+      color:#cde8ff;
+      margin-bottom:8px;
+    }
+
+    .cert-date{
+      font-size:16px;
+      color:#e9d7ff;
+      margin-bottom:18px;
+    }
+
+    .cert-btn{
+      align-self:flex-start;
+      padding:12px 22px;
+      border:none;
+      border-radius:14px;
+      font-size:16px;
+      font-weight:700;
+      color:#fff;
+      cursor:pointer;
+      background:linear-gradient(270deg, #2E7DE1, #7B3FCF, #E10E8C, #7B3FCF, #2E7DE1);
+      background-size:400% 400%;
+      animation:gradientMove 6s linear infinite;
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:
+        0 0 10px rgba(46,125,225,0.45),
+        0 0 20px rgba(123,63,207,0.35),
+        0 0 28px rgba(225,14,140,0.28);
+      transition:transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cert-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:
+        0 0 14px rgba(46,125,225,0.62),
+        0 0 28px rgba(123,63,207,0.52),
+        0 0 38px rgba(225,14,140,0.44);
+    }
+
+    .contact-links{
+      margin-top:16px;
+      position:relative;
+      z-index:1;
     }
 
     footer{
@@ -589,7 +666,7 @@
       }
 
       .skills-grid,
-      .two-column{
+      .cert-grid{
         grid-template-columns:1fr;
       }
 
@@ -641,8 +718,8 @@
 
           <p class="subtext">
             Aspiring cybersecurity professional with a strong interest in security monitoring,
-            log analysis, and incident investigation. Building solid foundations in networking,
-            cyber defense, and hands-on lab practice to grow into a strong SOC Analyst.
+            log analysis, and incident investigation. Building strong fundamentals in networking,
+            cyber defense, and hands-on SOC-style lab practice to grow into a solid SOC Analyst.
           </p>
 
           <a class="btn" href="#contact">Contact Me</a>
@@ -656,7 +733,7 @@
           <div class="orbit orbit1"></div>
           <div class="orbit orbit2"></div>
           <div class="photo-glow"></div>
-          <img src="Professional%20headshot%20of%20Vineeth%20Meru.png" alt="Cheguri Vineeth" class="animated-photo">
+          <img src="Professional headshot of Vineeth Meru.png" alt="Cheguri Vineeth" class="animated-photo">
         </div>
       </div>
 
@@ -713,14 +790,14 @@
 
       <div class="project-box">
         <div class="project-title">
-          Virtual SOC &amp; Network Defense Lab | Self-Initiated Hands-on Security Lab.
+          Virtual SOC &amp; Network Defense Lab | Self-Initiated Hands-on Security Lab
         </div>
 
         <div class="project-item">
           <strong>Infrastructure:</strong>
           <p>
             Engineered a virtualized network using Oracle VM VirtualBox to simulate an
-            enterprise environment with segmented networks.
+            enterprise-like environment with segmented networks.
           </p>
         </div>
 
@@ -735,7 +812,7 @@
         <div class="project-item">
           <strong>SIEM Integration:</strong>
           <p>
-            Utilized Splunk for centralized log management; performed basic analysis
+            Utilized Splunk for centralized log management and performed basic analysis
             of system logs and network alerts to identify security anomalies.
           </p>
         </div>
@@ -743,16 +820,16 @@
         <div class="project-item">
           <strong>Packet Analysis (Wireshark):</strong>
           <p>
-            Conducted routine network captures to analyze TCP handshakes, DNS requests,
-            and TLS traffic; to identify irregular traffic spikes or unauthorized connection attempts.
+            Conducted network captures to analyze TCP handshakes, DNS requests,
+            and TLS traffic to identify irregular spikes or unauthorized connection attempts.
           </p>
         </div>
 
         <div class="project-item">
           <strong>Firewall Management:</strong>
           <p>
-            Configured pfSense to manage gateway security, implementing strict access
-            control lists (ACLs) to harden the internal network.
+            Configured pfSense to manage gateway security and implemented access
+            control rules to harden the internal network.
           </p>
         </div>
       </div>
@@ -760,14 +837,64 @@
 
     <section id="certifications" class="card">
       <h2>Certifications &amp; Training</h2>
-      <ul>
-        <li>ISC2 Certified in Cybersecurity (CC) Training | Feb 2026</li>
-        <li>Endpoint Security – Cisco Networking Academy | Mar 2026</li>
-        <li>Introduction to Cybersecurity – Cisco Networking Academy | Mar 2026</li>
-        <li>Introduction to Digital Forensics – Security Blue Team | Feb 2026</li>
-        <li>Introduction to OSINT – Security Blue Team | Feb 2026</li>
-        <li>SOC Masterclass – ThinkCloudly | Dec 2025</li>
-      </ul>
+
+      <div class="cert-grid">
+
+        <div class="cert-card">
+          <div>
+            <h3>ISC2 Certified in Cybersecurity (CC) Training</h3>
+            <p class="cert-org">ISC2</p>
+            <p class="cert-date">Feb 2026</p>
+          </div>
+          <button class="cert-btn" onclick="viewCertificate('isc2-cc.pdf')">View</button>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <h3>Endpoint Security</h3>
+            <p class="cert-org">Cisco Networking Academy</p>
+            <p class="cert-date">Mar 2026</p>
+          </div>
+          <button class="cert-btn" onclick="viewCertificate('endpoint-security.pdf')">View</button>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <h3>Introduction to Cybersecurity</h3>
+            <p class="cert-org">Cisco Networking Academy</p>
+            <p class="cert-date">Mar 2026</p>
+          </div>
+          <button class="cert-btn" onclick="viewCertificate('intro-cybersecurity.pdf')">View</button>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <h3>Introduction to Digital Forensics</h3>
+            <p class="cert-org">Security Blue Team</p>
+            <p class="cert-date">Feb 2026</p>
+          </div>
+          <button class="cert-btn" onclick="viewCertificate('digital-forensics.pdf')">View</button>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <h3>Introduction to OSINT</h3>
+            <p class="cert-org">Security Blue Team</p>
+            <p class="cert-date">Feb 2026</p>
+          </div>
+          <button class="cert-btn" onclick="viewCertificate('osint.pdf')">View</button>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <h3>SOC Masterclass</h3>
+            <p class="cert-org">ThinkCloudly</p>
+            <p class="cert-date">Dec 2025</p>
+          </div>
+          <button class="cert-btn" onclick="viewCertificate('soc-masterclass.pdf')">View</button>
+        </div>
+
+      </div>
     </section>
 
     <section id="education" class="card">
@@ -794,7 +921,7 @@
       <p><strong>Email:</strong> vineethmeru44@outlook.com</p>
       <p><strong>Location:</strong> Telangana, India</p>
 
-      <div style="margin-top:16px;">
+      <div class="contact-links">
         <a class="btn" href="https://www.linkedin.com/in/vineeth-soc" target="_blank">LinkedIn</a>
         <a class="btn" href="vineeth-resume.pdf" download>Download CV</a>
       </div>
@@ -803,7 +930,7 @@
   </div>
 
   <footer>
-    © 2026 Cheguri Vineeth | Cybersecurity
+    © 2026 Cheguri Vineeth | Cybersecurity Portfolio
   </footer>
 
   <button class="scroll-top" id="scrollTopBtn">↑</button>
@@ -854,6 +981,10 @@
 
     typeEffect();
 
+    function viewCertificate(fileName) {
+      window.open(fileName, "_blank");
+    }
+
     const scrollTopBtn = document.getElementById("scrollTopBtn");
 
     window.addEventListener("scroll", function() {
@@ -878,7 +1009,8 @@
           e.key === "c" || e.key === "C" ||
           e.key === "x" || e.key === "X" ||
           e.key === "s" || e.key === "S" ||
-          e.key === "a" || e.key === "A"
+          e.key === "a" || e.key === "A" ||
+          e.key === "p" || e.key === "P"
         )
       ) {
         e.preventDefault();
