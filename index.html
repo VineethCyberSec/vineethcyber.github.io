@@ -11,6 +11,7 @@
       padding:0;
       box-sizing:border-box;
       font-family:Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
 
     html{
@@ -24,6 +25,8 @@
       -webkit-user-select:none;
       -ms-user-select:none;
       user-select:none;
+      -webkit-touch-callout:none;
+      touch-action:manipulation;
       cursor:default;
     }
 
@@ -31,7 +34,8 @@
       -webkit-user-drag:none;
       user-drag:none;
       pointer-events:none;
-      cursor:default;
+      -webkit-user-select:none;
+      user-select:none;
     }
 
     .bg-video{
@@ -598,16 +602,18 @@
         0 0 50px rgba(225,14,140,0.55);
     }
 
-    /* CERTIFICATE MODAL */
+    /* Locked certificate modal */
     .cert-modal{
-      display:none;
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.88);
-      z-index:99999;
+      background:rgba(0,0,0,0.92);
+      display:none;
       align-items:center;
       justify-content:center;
-      padding:20px;
+      z-index:99999;
+      padding:16px;
+      overflow:hidden;
+      touch-action:none;
     }
 
     .cert-modal.active{
@@ -616,38 +622,64 @@
 
     .cert-modal-box{
       position:relative;
-      width:95%;
+      width:96%;
       max-width:1100px;
       height:88vh;
       border-radius:22px;
       overflow:hidden;
-      background:#07090f;
-      border:1px solid rgba(255,255,255,0.14);
+      background:#05070d;
+      border:1px solid rgba(255,255,255,0.12);
       box-shadow:0 25px 60px rgba(0,0,0,0.65);
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
     .cert-close{
       position:absolute;
       top:12px;
-      right:16px;
+      right:14px;
       width:42px;
       height:42px;
       border:none;
       border-radius:50%;
-      background:rgba(0,0,0,0.65);
+      background:rgba(0,0,0,0.72);
       color:#fff;
       font-size:28px;
       font-weight:bold;
       cursor:pointer;
-      z-index:20;
-      border:1px solid rgba(255,255,255,0.16);
-      transition:0.25s ease;
+      z-index:50;
+      border:1px solid rgba(255,255,255,0.14);
     }
 
     .cert-close:hover{
       color:#7cf7ff;
-      transform:scale(1.08);
-      box-shadow:0 0 16px rgba(124,247,255,0.35);
+      box-shadow:0 0 15px rgba(124,247,255,0.3);
+    }
+
+    .cert-image-wrap{
+      position:relative;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#0c1018;
+      touch-action:none;
+    }
+
+    .cert-image{
+      max-width:92%;
+      max-height:88%;
+      object-fit:contain;
+      pointer-events:none;
+      user-select:none;
+      -webkit-user-select:none;
+      -webkit-user-drag:none;
+      touch-action:none;
+      border-radius:12px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.35);
     }
 
     .cert-watermark{
@@ -656,58 +688,42 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:48px;
+      font-size:44px;
       font-weight:800;
       letter-spacing:4px;
-      color:rgba(255,255,255,0.06);
-      transform:rotate(-30deg);
-      z-index:12;
+      color:rgba(255,255,255,0.07);
+      transform:rotate(-28deg);
+      z-index:20;
       pointer-events:none;
       text-transform:uppercase;
     }
 
-    .cert-frame-wrap{
-      width:100%;
-      height:100%;
-      position:relative;
-      background:#0b0f18;
-    }
-
-    .cert-frame{
-      width:100%;
-      height:100%;
-      border:none;
-      background:#111;
-      position:relative;
-      z-index:10;
-    }
-
-    .cert-topbar{
+    .cert-topshade{
       position:absolute;
       top:0;
       left:0;
-      width:100%;
-      height:58px;
-      background:linear-gradient(180deg, rgba(0,0,0,0.82), rgba(0,0,0,0.18));
+      right:0;
+      height:70px;
+      background:linear-gradient(180deg, rgba(0,0,0,0.82), rgba(0,0,0,0));
       z-index:15;
       pointer-events:none;
     }
 
-    .cert-note{
+    .cert-bottomnote{
       position:absolute;
-      left:18px;
-      bottom:14px;
+      left:16px;
+      bottom:16px;
+      z-index:20;
       padding:8px 12px;
       border-radius:12px;
       font-size:13px;
-      color:#dcdcdc;
-      background:rgba(0,0,0,0.45);
-      border:1px solid rgba(255,255,255,0.1);
-      z-index:15;
+      background:rgba(0,0,0,0.55);
+      border:1px solid rgba(255,255,255,0.10);
+      color:#ddd;
       pointer-events:none;
     }
 
-    .screen-block{
+    .shield-overlay{
       position:fixed;
       inset:0;
       background:#000;
@@ -801,7 +817,12 @@
 
       .cert-modal-box{
         width:98%;
-        height:84vh;
+        height:82vh;
+      }
+
+      .cert-image{
+        max-width:94%;
+        max-height:82%;
       }
 
       .cert-watermark{
@@ -811,7 +832,7 @@
     }
   </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
   <video autoplay muted loop playsinline class="bg-video">
     <source src="bg-video.mp4" type="video/mp4">
@@ -832,7 +853,6 @@
 
   <section class="hero">
     <div class="hero-container">
-
       <div class="hero-left">
         <div class="glass-box">
           <h1>Cheguri <span>Vineeth</span></h1>
@@ -850,7 +870,7 @@
           </p>
 
           <a class="btn" href="#contact">Contact Me</a>
-          <a class="btn" href="https://www.linkedin.com/in/vineeth-soc" target="_blank">LinkedIn</a>
+          <a class="btn" href="https://www.linkedin.com/in/vineeth-soc" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn" href="vineeth-resume.pdf" download>Download CV</a>
         </div>
       </div>
@@ -863,7 +883,6 @@
           <img src="Professional headshot of Vineeth Meru.png" alt="Cheguri Vineeth" class="animated-photo">
         </div>
       </div>
-
     </div>
   </section>
 
@@ -914,7 +933,6 @@
 
     <section id="projects" class="card">
       <h2>Technical Security Projects</h2>
-
       <div class="project-box">
         <div class="project-title">
           Virtual SOC &amp; Network Defense Lab | Self-Initiated Hands-on Security Lab
@@ -922,42 +940,27 @@
 
         <div class="project-item">
           <strong>Infrastructure:</strong>
-          <p>
-            Engineered a virtualized network using Oracle VM VirtualBox to simulate an
-            enterprise-like environment with segmented networks.
-          </p>
+          <p>Engineered a virtualized network using Oracle VM VirtualBox to simulate an enterprise-like environment with segmented networks.</p>
         </div>
 
         <div class="project-item">
           <strong>Traffic Monitoring:</strong>
-          <p>
-            Deployed and configured Suricata IDS on Ubuntu to monitor network traffic,
-            generating alerts for suspicious patterns and potential threats.
-          </p>
+          <p>Deployed and configured Suricata IDS on Ubuntu to monitor network traffic, generating alerts for suspicious patterns and potential threats.</p>
         </div>
 
         <div class="project-item">
           <strong>SIEM Integration:</strong>
-          <p>
-            Utilized Splunk for centralized log management and performed basic analysis
-            of system logs and network alerts to identify security anomalies.
-          </p>
+          <p>Utilized Splunk for centralized log management and performed basic analysis of system logs and network alerts to identify security anomalies.</p>
         </div>
 
         <div class="project-item">
           <strong>Packet Analysis (Wireshark):</strong>
-          <p>
-            Conducted network captures to analyze TCP handshakes, DNS requests,
-            and TLS traffic to identify irregular spikes or unauthorized connection attempts.
-          </p>
+          <p>Conducted network captures to analyze TCP handshakes, DNS requests, and TLS traffic to identify irregular spikes or unauthorized connection attempts.</p>
         </div>
 
         <div class="project-item">
           <strong>Firewall Management:</strong>
-          <p>
-            Configured pfSense to manage gateway security and implemented access
-            control rules to harden the internal network.
-          </p>
+          <p>Configured pfSense to manage gateway security and implemented access control rules to harden the internal network.</p>
         </div>
       </div>
     </section>
@@ -966,14 +969,13 @@
       <h2>Certifications &amp; Training</h2>
 
       <div class="cert-grid">
-
         <div class="cert-card">
           <div>
             <h3>ISC2 Certified in Cybersecurity (CC) Training</h3>
             <p class="cert-org">ISC2</p>
             <p class="cert-date">Feb 2026</p>
           </div>
-          <button class="cert-btn" onclick="openCertificate('isc2-cc.pdf')">View</button>
+          <button class="cert-btn" onclick="openCertificate('isc2-cc.jpg')">View</button>
         </div>
 
         <div class="cert-card">
@@ -982,7 +984,7 @@
             <p class="cert-org">Cisco Networking Academy</p>
             <p class="cert-date">Mar 2026</p>
           </div>
-          <button class="cert-btn" onclick="openCertificate('endpoint-security.pdf')">View</button>
+          <button class="cert-btn" onclick="openCertificate('endpoint-security.jpg')">View</button>
         </div>
 
         <div class="cert-card">
@@ -991,7 +993,7 @@
             <p class="cert-org">Cisco Networking Academy</p>
             <p class="cert-date">Mar 2026</p>
           </div>
-          <button class="cert-btn" onclick="openCertificate('intro-cybersecurity.pdf')">View</button>
+          <button class="cert-btn" onclick="openCertificate('intro-cybersecurity.jpg')">View</button>
         </div>
 
         <div class="cert-card">
@@ -1000,7 +1002,7 @@
             <p class="cert-org">Security Blue Team</p>
             <p class="cert-date">Feb 2026</p>
           </div>
-          <button class="cert-btn" onclick="openCertificate('digital-forensics.pdf')">View</button>
+          <button class="cert-btn" onclick="openCertificate('digital-forensics.jpg')">View</button>
         </div>
 
         <div class="cert-card">
@@ -1009,7 +1011,7 @@
             <p class="cert-org">Security Blue Team</p>
             <p class="cert-date">Feb 2026</p>
           </div>
-          <button class="cert-btn" onclick="openCertificate('osint.pdf')">View</button>
+          <button class="cert-btn" onclick="openCertificate('osint.jpg')">View</button>
         </div>
 
         <div class="cert-card">
@@ -1018,9 +1020,8 @@
             <p class="cert-org">ThinkCloudly</p>
             <p class="cert-date">Dec 2025</p>
           </div>
-          <button class="cert-btn" onclick="openCertificate('soc-masterclass.pdf')">View</button>
+          <button class="cert-btn" onclick="openCertificate('soc-masterclass.jpg')">View</button>
         </div>
-
       </div>
     </section>
 
@@ -1049,7 +1050,7 @@
       <p><strong>Location:</strong> Telangana, India</p>
 
       <div class="contact-links">
-        <a class="btn" href="https://www.linkedin.com/in/vineeth-soc" target="_blank">LinkedIn</a>
+        <a class="btn" href="https://www.linkedin.com/in/vineeth-soc" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="vineeth-resume.pdf" download>Download CV</a>
       </div>
     </section>
@@ -1057,25 +1058,24 @@
   </div>
 
   <footer>
-    © 2026 Cheguri Vineeth | Cybersecurity
+    © 2026 Cheguri Vineeth | Cybersecurity Portfolio
   </footer>
 
   <button class="scroll-top" id="scrollTopBtn">↑</button>
 
-  <!-- CERTIFICATE POPUP -->
   <div class="cert-modal" id="certModal">
-    <div class="cert-modal-box">
+    <div class="cert-modal-box" id="certModalBox">
       <button class="cert-close" onclick="closeCertificate()">×</button>
-      <div class="cert-topbar"></div>
+      <div class="cert-topshade"></div>
       <div class="cert-watermark">Cheguri Vineeth</div>
-      <div class="cert-note">Protected preview mode</div>
-      <div class="cert-frame-wrap">
-        <iframe id="certFrame" class="cert-frame" src=""></iframe>
+      <div class="cert-bottomnote">Protected preview mode</div>
+      <div class="cert-image-wrap" id="certImageWrap">
+        <img id="certImage" class="cert-image" src="" alt="Certificate Preview">
       </div>
     </div>
   </div>
 
-  <div class="screen-block" id="screenBlock"></div>
+  <div class="shield-overlay" id="shieldOverlay"></div>
 
   <script>
     const texts = [
@@ -1124,25 +1124,83 @@
     typeEffect();
 
     const certModal = document.getElementById("certModal");
-    const certFrame = document.getElementById("certFrame");
-    const screenBlock = document.getElementById("screenBlock");
+    const certImage = document.getElementById("certImage");
+    const certModalBox = document.getElementById("certModalBox");
+    const certImageWrap = document.getElementById("certImageWrap");
+    const shieldOverlay = document.getElementById("shieldOverlay");
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
 
     function openCertificate(fileName) {
-      certFrame.src = fileName + "#toolbar=0&navpanes=0&scrollbar=0&view=FitH";
+      certImage.src = fileName;
       certModal.classList.add("active");
       document.body.style.overflow = "hidden";
     }
 
     function closeCertificate() {
       certModal.classList.remove("active");
-      certFrame.src = "";
+      certImage.src = "";
       document.body.style.overflow = "auto";
     }
 
     certModal.addEventListener("click", function(e){
-      if(e.target === certModal){
+      if (e.target === certModal) {
         closeCertificate();
       }
+    });
+
+    certModalBox.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+      return false;
+    });
+
+    certImageWrap.addEventListener("wheel", function(e){
+      e.preventDefault();
+    }, { passive:false });
+
+    certImageWrap.addEventListener("touchmove", function(e){
+      e.preventDefault();
+    }, { passive:false });
+
+    certImageWrap.addEventListener("gesturestart", function(e){
+      e.preventDefault();
+    });
+
+    certImageWrap.addEventListener("gesturechange", function(e){
+      e.preventDefault();
+    });
+
+    certImageWrap.addEventListener("gestureend", function(e){
+      e.preventDefault();
+    });
+
+    function flashShield() {
+      shieldOverlay.style.display = "block";
+      setTimeout(() => {
+        shieldOverlay.style.display = "none";
+      }, 700);
+    }
+
+    document.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    document.addEventListener("dragstart", function(e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener("selectstart", function(e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener("copy", function(e) {
+      e.preventDefault();
+      flashShield();
+    });
+
+    document.addEventListener("cut", function(e) {
+      e.preventDefault();
+      flashShield();
     });
 
     document.addEventListener("keydown", function(e) {
@@ -1152,40 +1210,28 @@
         closeCertificate();
       }
 
-      if (
-        e.ctrlKey && ["u","c","x","s","a","p"].includes(key) ||
-        e.key === "PrintScreen" ||
-        e.keyCode === 44 ||
+      const blocked =
+        (e.ctrlKey && ["u","c","x","s","a","p"].includes(key)) ||
         (e.ctrlKey && e.shiftKey && ["i","j","c","s"].includes(key)) ||
-        key === "f12"
-      ) {
+        key === "f12" ||
+        e.key === "PrintScreen" ||
+        e.keyCode === 44;
+
+      if (blocked) {
         e.preventDefault();
-        showScreenBlock();
+        flashShield();
         return false;
       }
     });
 
-    document.addEventListener("contextmenu", function(e) {
-      e.preventDefault();
-    });
-
-    function showScreenBlock() {
-      screenBlock.style.display = "block";
-      setTimeout(() => {
-        screenBlock.style.display = "none";
-      }, 800);
-    }
-
     document.addEventListener("keyup", function(e) {
       if (e.key === "PrintScreen" || e.keyCode === 44) {
-        showScreenBlock();
         try {
           navigator.clipboard.writeText("");
-        } catch (err) {}
+        } catch(err) {}
+        flashShield();
       }
     });
-
-    const scrollTopBtn = document.getElementById("scrollTopBtn");
 
     window.addEventListener("scroll", function() {
       if (window.scrollY > 300) {
@@ -1201,15 +1247,6 @@
         behavior: "smooth"
       });
     });
-
-    document.addEventListener("dragstart", function(e) {
-      e.preventDefault();
-    });
-
-    document.addEventListener("selectstart", function(e) {
-      e.preventDefault();
-    });
   </script>
-
 </body>
 </html>
