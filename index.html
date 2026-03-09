@@ -598,6 +598,123 @@
         0 0 50px rgba(225,14,140,0.55);
     }
 
+    /* CERTIFICATE MODAL */
+    .cert-modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.88);
+      z-index:99999;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .cert-modal.active{
+      display:flex;
+    }
+
+    .cert-modal-box{
+      position:relative;
+      width:95%;
+      max-width:1100px;
+      height:88vh;
+      border-radius:22px;
+      overflow:hidden;
+      background:#07090f;
+      border:1px solid rgba(255,255,255,0.14);
+      box-shadow:0 25px 60px rgba(0,0,0,0.65);
+    }
+
+    .cert-close{
+      position:absolute;
+      top:12px;
+      right:16px;
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:50%;
+      background:rgba(0,0,0,0.65);
+      color:#fff;
+      font-size:28px;
+      font-weight:bold;
+      cursor:pointer;
+      z-index:20;
+      border:1px solid rgba(255,255,255,0.16);
+      transition:0.25s ease;
+    }
+
+    .cert-close:hover{
+      color:#7cf7ff;
+      transform:scale(1.08);
+      box-shadow:0 0 16px rgba(124,247,255,0.35);
+    }
+
+    .cert-watermark{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:48px;
+      font-weight:800;
+      letter-spacing:4px;
+      color:rgba(255,255,255,0.06);
+      transform:rotate(-30deg);
+      z-index:12;
+      pointer-events:none;
+      text-transform:uppercase;
+    }
+
+    .cert-frame-wrap{
+      width:100%;
+      height:100%;
+      position:relative;
+      background:#0b0f18;
+    }
+
+    .cert-frame{
+      width:100%;
+      height:100%;
+      border:none;
+      background:#111;
+      position:relative;
+      z-index:10;
+    }
+
+    .cert-topbar{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:58px;
+      background:linear-gradient(180deg, rgba(0,0,0,0.82), rgba(0,0,0,0.18));
+      z-index:15;
+      pointer-events:none;
+    }
+
+    .cert-note{
+      position:absolute;
+      left:18px;
+      bottom:14px;
+      padding:8px 12px;
+      border-radius:12px;
+      font-size:13px;
+      color:#dcdcdc;
+      background:rgba(0,0,0,0.45);
+      border:1px solid rgba(255,255,255,0.1);
+      z-index:15;
+      pointer-events:none;
+    }
+
+    .screen-block{
+      position:fixed;
+      inset:0;
+      background:#000;
+      z-index:100000;
+      display:none;
+    }
+
     @media(max-width:950px){
       .hero-container{
         flex-direction:column-reverse;
@@ -680,6 +797,16 @@
 
       .project-title{
         font-size:20px;
+      }
+
+      .cert-modal-box{
+        width:98%;
+        height:84vh;
+      }
+
+      .cert-watermark{
+        font-size:24px;
+        letter-spacing:2px;
       }
     }
   </style>
@@ -846,7 +973,7 @@
             <p class="cert-org">ISC2</p>
             <p class="cert-date">Feb 2026</p>
           </div>
-          <button class="cert-btn" onclick="viewCertificate('isc2-cc.pdf')">View</button>
+          <button class="cert-btn" onclick="openCertificate('isc2-cc.pdf')">View</button>
         </div>
 
         <div class="cert-card">
@@ -855,7 +982,7 @@
             <p class="cert-org">Cisco Networking Academy</p>
             <p class="cert-date">Mar 2026</p>
           </div>
-          <button class="cert-btn" onclick="viewCertificate('endpoint-security.pdf')">View</button>
+          <button class="cert-btn" onclick="openCertificate('endpoint-security.pdf')">View</button>
         </div>
 
         <div class="cert-card">
@@ -864,7 +991,7 @@
             <p class="cert-org">Cisco Networking Academy</p>
             <p class="cert-date">Mar 2026</p>
           </div>
-          <button class="cert-btn" onclick="viewCertificate('intro-cybersecurity.pdf')">View</button>
+          <button class="cert-btn" onclick="openCertificate('intro-cybersecurity.pdf')">View</button>
         </div>
 
         <div class="cert-card">
@@ -873,7 +1000,7 @@
             <p class="cert-org">Security Blue Team</p>
             <p class="cert-date">Feb 2026</p>
           </div>
-          <button class="cert-btn" onclick="viewCertificate('digital-forensics.pdf')">View</button>
+          <button class="cert-btn" onclick="openCertificate('digital-forensics.pdf')">View</button>
         </div>
 
         <div class="cert-card">
@@ -882,7 +1009,7 @@
             <p class="cert-org">Security Blue Team</p>
             <p class="cert-date">Feb 2026</p>
           </div>
-          <button class="cert-btn" onclick="viewCertificate('osint.pdf')">View</button>
+          <button class="cert-btn" onclick="openCertificate('osint.pdf')">View</button>
         </div>
 
         <div class="cert-card">
@@ -891,7 +1018,7 @@
             <p class="cert-org">ThinkCloudly</p>
             <p class="cert-date">Dec 2025</p>
           </div>
-          <button class="cert-btn" onclick="viewCertificate('soc-masterclass.pdf')">View</button>
+          <button class="cert-btn" onclick="openCertificate('soc-masterclass.pdf')">View</button>
         </div>
 
       </div>
@@ -930,10 +1057,25 @@
   </div>
 
   <footer>
-    © 2026 Cheguri Vineeth | Cybersecurity Portfolio
+    © 2026 Cheguri Vineeth | Cybersecurity
   </footer>
 
   <button class="scroll-top" id="scrollTopBtn">↑</button>
+
+  <!-- CERTIFICATE POPUP -->
+  <div class="cert-modal" id="certModal">
+    <div class="cert-modal-box">
+      <button class="cert-close" onclick="closeCertificate()">×</button>
+      <div class="cert-topbar"></div>
+      <div class="cert-watermark">Cheguri Vineeth</div>
+      <div class="cert-note">Protected preview mode</div>
+      <div class="cert-frame-wrap">
+        <iframe id="certFrame" class="cert-frame" src=""></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-block" id="screenBlock"></div>
 
   <script>
     const texts = [
@@ -981,9 +1123,67 @@
 
     typeEffect();
 
-    function viewCertificate(fileName) {
-      window.open(fileName, "_blank");
+    const certModal = document.getElementById("certModal");
+    const certFrame = document.getElementById("certFrame");
+    const screenBlock = document.getElementById("screenBlock");
+
+    function openCertificate(fileName) {
+      certFrame.src = fileName + "#toolbar=0&navpanes=0&scrollbar=0&view=FitH";
+      certModal.classList.add("active");
+      document.body.style.overflow = "hidden";
     }
+
+    function closeCertificate() {
+      certModal.classList.remove("active");
+      certFrame.src = "";
+      document.body.style.overflow = "auto";
+    }
+
+    certModal.addEventListener("click", function(e){
+      if(e.target === certModal){
+        closeCertificate();
+      }
+    });
+
+    document.addEventListener("keydown", function(e) {
+      const key = e.key.toLowerCase();
+
+      if (e.key === "Escape" && certModal.classList.contains("active")) {
+        closeCertificate();
+      }
+
+      if (
+        e.ctrlKey && ["u","c","x","s","a","p"].includes(key) ||
+        e.key === "PrintScreen" ||
+        e.keyCode === 44 ||
+        (e.ctrlKey && e.shiftKey && ["i","j","c","s"].includes(key)) ||
+        key === "f12"
+      ) {
+        e.preventDefault();
+        showScreenBlock();
+        return false;
+      }
+    });
+
+    document.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+    });
+
+    function showScreenBlock() {
+      screenBlock.style.display = "block";
+      setTimeout(() => {
+        screenBlock.style.display = "none";
+      }, 800);
+    }
+
+    document.addEventListener("keyup", function(e) {
+      if (e.key === "PrintScreen" || e.keyCode === 44) {
+        showScreenBlock();
+        try {
+          navigator.clipboard.writeText("");
+        } catch (err) {}
+      }
+    });
 
     const scrollTopBtn = document.getElementById("scrollTopBtn");
 
@@ -1002,19 +1202,12 @@
       });
     });
 
-    document.addEventListener("keydown", function(e) {
-      if (
-        e.ctrlKey && (
-          e.key === "u" || e.key === "U" ||
-          e.key === "c" || e.key === "C" ||
-          e.key === "x" || e.key === "X" ||
-          e.key === "s" || e.key === "S" ||
-          e.key === "a" || e.key === "A" ||
-          e.key === "p" || e.key === "P"
-        )
-      ) {
-        e.preventDefault();
-      }
+    document.addEventListener("dragstart", function(e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener("selectstart", function(e) {
+      e.preventDefault();
     });
   </script>
 
