@@ -228,18 +228,7 @@
       z-index:3;
       box-shadow:0 0 25px rgba(0,225,255,0.45), 0 0 60px rgba(0,225,255,0.18);
     }
-
-    .photo-glow{
-      position:absolute;
-      width:380px;
-      height:380px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(0,229,255,0.28) 0%, rgba(0,229,255,0.10) 40%, rgba(0,229,255,0.02) 70%, transparent 100%);
-      z-index:1;
-      filter:blur(8px);
-      pointer-events:none;
-    }
-
+    
     @keyframes floatPhoto{
       0%,100%{transform:translateY(0px);}
       50%{transform:translateY(-10px);}
@@ -1167,10 +1156,6 @@
 
       <div class="hero-right">
         <div class="photo-wrap">
-          <div class="photo-glow"></div>
-          <div class="orbit orbit1"></div>
-          <div class="orbit orbit2"></div>
-          <div class="orbit orbit3"></div>
           <img src="images/vineeth.png" alt="Cheguri Vineeth" class="animated-photo">
         </div>
       </div>
