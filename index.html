@@ -240,59 +240,6 @@
       pointer-events:none;
     }
 
-    .orbit{
-      position:absolute;
-      border-radius:50%;
-      z-index:2;
-      pointer-events:none;
-    }
-
-    .orbit1{
-      width:440px;
-      height:440px;
-      border-top:4px solid #2de2ff;
-      border-left:4px solid transparent;
-      border-right:4px solid #7b61ff;
-      border-bottom:4px solid transparent;
-      transform:rotate(20deg);
-      animation:spinOrbit 7s linear infinite;
-      box-shadow:0 0 20px rgba(45,226,255,0.35);
-    }
-
-    .orbit2{
-      width:470px;
-      height:470px;
-      border-top:4px solid transparent;
-      border-left:4px solid #ff4fd8;
-      border-right:4px solid transparent;
-      border-bottom:4px solid #5eff9b;
-      transform:rotate(-18deg);
-      animation:spinOrbitReverse 11s linear infinite;
-      box-shadow:0 0 22px rgba(255,79,216,0.2);
-    }
-
-    .orbit3{
-      width:520px;
-      height:520px;
-      border:2px dashed rgba(124,247,255,0.22);
-      animation:pulseRing 3s ease-in-out infinite;
-    }
-
-    @keyframes spinOrbit{
-      from{transform:rotate(0deg);}
-      to{transform:rotate(360deg);}
-    }
-
-    @keyframes spinOrbitReverse{
-      from{transform:rotate(360deg);}
-      to{transform:rotate(0deg);}
-    }
-
-    @keyframes pulseRing{
-      0%,100%{transform:scale(0.98); opacity:0.65;}
-      50%{transform:scale(1.02); opacity:1;}
-    }
-
     @keyframes floatPhoto{
       0%,100%{transform:translateY(0px);}
       50%{transform:translateY(-10px);}
