@@ -217,6 +217,17 @@
       animation:floatPhoto 4s ease-in-out infinite;
     }
 
+    .animated-photo{
+      position:relative;
+      width:340px;
+      height:340px;
+      object-fit:cover;
+      object-position:center 10%;
+      border-radius:50%;
+      z-index:3;
+      box-shadow:none;
+    }
+
     @keyframes floatPhoto{
       0%,100%{transform:translateY(0px);}
       50%{transform:translateY(-10px);}
