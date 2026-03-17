@@ -1172,41 +1172,6 @@
         height:48px;
       }
     }
-      /* =========================
-   HERO DYNAMIC ORB BACKGROUND
-========================= */
-
-.hero {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-/* Background image layer */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -3;
-  transition: opacity 1.5s ease;
-}
-
-/* Gradient overlay for premium look */
-.hero-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.75),
-    rgba(15, 5, 35, 0.6),
-    rgba(0, 0, 0, 0.8)
-  );
-}
-
-    
   </style>
 </head>
 <body oncontextmenu="return false;">
@@ -1238,7 +1203,6 @@
 
   <!-- Hero -->
   <section class="hero" id="home">
-    <div class="hero-bg" id="heroBg"></div>
     <div class="hero-container">
       <div class="hero-left">
         <h1>Hi, I'm <span>Cheguri Vineeth</span></h1>
@@ -1888,39 +1852,6 @@
         menuBox.classList.remove('show');
       }
     });
-/* =========================
-   DAILY ORB BACKGROUND ROTATION
-========================= */
-
-    (function () {
-      const images = [
-       "images/orbs/orb1.png",
-       "images/orbs/orb2.png",
-       "images/orbs/orb3.png",
-       "images/orbs/orb4.png",
-       "images/orbs/orb5.png",
-       "images/orbs/orb6.png",
-       "images/orbs/orb7.png",
-       "images/orbs/orb8.png",
-       "images/orbs/orb9.png",
-       "images/orbs/orb10.png",
-       "images/orbs/orb11.png",
-       "images/orbs/orb12.png"
-     ];
-
-      const heroBg = document.getElementById("heroBg");
-
-     // Get today's date number
-     const today = new Date();
-     const dayNumber = Math.floor(today.getTime() / (1000 * 60 * 60 * 24));
-
-    // Pick image based on day
-     const index = dayNumber % images.length;
-
-  // Apply background
-     heroBg.style.backgroundImage = `url('${images[index]}')`;
-  })();
-    
   </script>
 </body>
 </html>
